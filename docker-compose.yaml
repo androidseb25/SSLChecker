@@ -4,7 +4,7 @@ services:
   sslchecker:
     container_name: SSLChecker
     hostname: sslchecker
-    image: ghcr.io/androidseb25/SSLChecker:latest
+    image: ghcr.io/androidseb25/sslchecker:latest
     restart: unless-stopped
     security_opt:
       - no-new-privileges:true
