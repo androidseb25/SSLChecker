@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  sslchecker:
+    container_name: SSLChecker
+    hostname: sslchecker
+    image: ghcr.io/androidseb25/SSLChecker:latest
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    pull_policy: always
+    networks:
+      - net
+    ports:
+      - "8454:8080"
+    volumes:
+      - api-data:/app/data
+    environment:
+      DOMAINS: '' #domain list without http/s e.g. 'example.com' more domains seperated by ';'
+      GOTIFY_URL: '' #you're Gotify Url to send an information e.g. 'https://my-gotify.com'
+      GOTIFY_APP_TOKEN: '' #the application token from gotify e.g. 'ATjChbj3_XTc9P.'
+      GOTIFY_PRIORITY: '' # OPTIONAL: default value is '0' 
+      SEND_MESSAGE_ON_SUCCESS: '' # OPTIONAL: send a message when certificate is still valid. the default value is 'false' 
+      INTERVAL: '' # OPTIONAL: when you run the check in hour's run. the default value is '24' 
+      START_TIME: '' # OPTIONAL: when the job is starting to check. the default value is '03:00' 
+
+networks:
+  net:
+
+volumes:
+  data:
+  api-data:
