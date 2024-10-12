@@ -7,6 +7,8 @@ public class Environments
         get
         {
             string domains = Environment.GetEnvironmentVariable("DOMAINS") ?? "";
+            if (domains.Length == 0)
+                return new List<string>();
             return domains.Split(';').ToList();
         }
     }

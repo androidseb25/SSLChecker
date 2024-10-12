@@ -27,29 +27,8 @@ public class CheckSSL
     public CheckSSL(ILogger<SSLCheckerJob> logger)
     {
         this.logger = logger;
-
-        if (Environments.GotifyServerUrl.Length == 0)
-        {
-            this.logger.LogInformation("Gotify Server isn't configured!");
-            return;
-        }
-
-        if (Environments.GotifyAppToken.Length == 0)
-        {
-            this.logger.LogInformation("Gotify App token isn't configured!");
-            return;
-        }
-
-        if (Environments.GotifyPriority < 0)
-        {
-            this.logger.LogInformation("Gotify priority isn't supported! Only 0 - 10 is supported!");
-            return;
-        }
-        
         if (Environments.DomainList.Count > 0)
             CheckCertificates();
-        else
-            this.logger.LogInformation("Domain list isn't configured!");
     }
 
     private async void CheckCertificates()

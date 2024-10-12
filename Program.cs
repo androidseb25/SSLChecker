@@ -1,5 +1,6 @@
 using Quartz;
 using SSLChecker.Jobs;
+using SSLChecker.Services;
 using Environments = SSLChecker.Environments;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -27,6 +28,8 @@ builder.Services.AddQuartz(q =>
     );
 });
 builder.Services.AddQuartzHostedService(q => q.WaitForJobsToComplete = true);
+
+builder.Services.AddTransient<IStartupFilter, StartUpBuilder>();
 
 var app = builder.Build();
 
