@@ -123,6 +123,9 @@ public class CheckSSL
     
     private async Task<bool> SendMessageToGotify(string title, string message)
     {
+        if (Environments.GotifyServerUrl.Length == 0 ||  Environments.GotifyAppToken.Length == 0)
+            return false;
+        
         using (HttpClient client = new HttpClient())
         {
             // Prepare the message payload
