@@ -59,7 +59,7 @@ public class CheckSSL
                 logger.LogInformation(message);
                 _ = await SendMessageToGotify(title, message);
             }
-            else if (DateTime.Today >= expireDateIn2)
+            else if (DateTime.Today == expireDateIn2)
             {
                 string title = $"[{domain}] Certificate expire in 2 days";
                 string message =
@@ -67,7 +67,7 @@ public class CheckSSL
                 logger.LogInformation(message);
                 bool result = await SendMessageToGotify(title, message);
             }
-            else if (DateTime.Today >= expireDateIn3)
+            else if (DateTime.Today == expireDateIn3)
             {
                 string title = $"[{domain}] Certificate expire in 3 days";
                 string message =
@@ -75,7 +75,7 @@ public class CheckSSL
                 logger.LogInformation(message);
                 bool result = await SendMessageToGotify(title, message);
             }
-            else if (DateTime.Today >= expireDateIn5)
+            else if (DateTime.Today == expireDateIn5)
             {
                 string title = $"[{domain}] Certificate expire in 5 days";
                 string message =
@@ -83,7 +83,7 @@ public class CheckSSL
                 logger.LogInformation(message);
                 _ = await SendMessageToGotify(title, message);
             }
-            else if (DateTime.Today >= expireDateIn10)
+            else if (DateTime.Today == expireDateIn10)
             {
                 string title = $"[{domain}] Certificate expire in 10 days";
                 string message =
@@ -91,7 +91,7 @@ public class CheckSSL
                 logger.LogInformation(message);
                 _ = await SendMessageToGotify(title, message);
             }
-            else if (DateTime.Today >= expireDateIn20)
+            else if (DateTime.Today == expireDateIn20)
             {
                 string title = $"[{domain}] Certificate expire in 20 days";
                 string message =
@@ -99,7 +99,7 @@ public class CheckSSL
                 logger.LogInformation(message);
                 _ = await SendMessageToGotify(title, message);
             }
-            else if (DateTime.Today >= expireDateIn30)
+            else if (DateTime.Today == expireDateIn30)
             {
                 string title = $"[{domain}] Certificate expire in 30 days";
                 string message =
